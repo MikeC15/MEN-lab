@@ -56,5 +56,15 @@ router.get("/", (req,res) =>{
 })
 
 // destroy route
+router.delete("/:id", (req,res)=>{
+    Actor.findByIdAndDelete(req.params.id, (err) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.redirect('/actors');
+
+        }
+    })
+})
 
 module.exports = router;

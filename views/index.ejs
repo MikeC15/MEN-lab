@@ -11,6 +11,9 @@
     <ul>
         <% for(let i = 0; i < actors.length; i++) { %>
         <li><a href="/actors/<%= actors[i]._id %>"><%=actors[i].name%></a></li>
+        <form action="/actors/<%=actors[i]._id%>?_method=DELETE" method="POST">
+            <button type='Submit'>Delete</button>
+        </form>
         <% } %>
     </ul>
     
