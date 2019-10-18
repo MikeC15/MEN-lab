@@ -14,6 +14,7 @@ router.get("/new", (req, res) => {
 
 // create route
 router.post("/", (req, res) => {
+    console.log(req.body)
     Actor.create(req.body, (err, createdActor) =>{
         if(err){
             res.send(err)
