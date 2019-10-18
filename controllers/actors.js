@@ -1,11 +1,11 @@
 const express = require("express")
 const router = express.Router();
 
-// const Actor = require("../models/actors")
+const Actor = require("../models/actors.js")
 
 
 
-// /controllers
+// //controllers
 
 // new route
 router.get("/new", (req, res) => {
@@ -13,6 +13,16 @@ router.get("/new", (req, res) => {
 })
 
 // create route
+router.post("/", (req, res) => {
+    Actor.create(req.body, (err, createdActor) =>{
+        if(err){
+            res.send(err)
+        } else{
+            console.log(createdActor)
+            res.redirect('/actors')
+        }
+    })
+})
 
 // edit route
 
