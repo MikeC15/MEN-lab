@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const actorsController = require("./controllers/actors")
 
-// require('./db/db')
+require('./db/db')
 
 
 //middleware

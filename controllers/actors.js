@@ -18,7 +18,7 @@ router.post("/", (req, res) => {
         if(err){
             res.send(err)
         } else{
-            console.log(createdActor)
+            console.log("CREATED:", createdActor)
             res.redirect('/actors')
         }
     })
