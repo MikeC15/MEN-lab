@@ -40,6 +40,20 @@ router.get("/:id/edit", (req,res)=>{
 })
 
 // update route 
+router.put("/:id", (req,res)=>{
+    Actor.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true },
+        (err, updatedActor) => {
+            if (err) {
+                res.send(err)
+            } else {
+                console.log("Updated: ", updatedActor)
+                res.redirect("/actors")
+            }
+        })
+})
 
 // show route
 router.get("/:id", (req,res)=>{
