@@ -26,6 +26,18 @@ router.post("/", (req, res) => {
 })
 
 // edit route
+router.get("/:id/edit", (req,res)=>{
+    Actor.findById(req.params.id, (err, foundActor) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.render("edit.ejs", {
+                actor: foundActor
+            });
+
+        }
+    })
+})
 
 // update route 
 
