@@ -30,6 +30,17 @@ router.post("/", (req, res) => {
 // update route 
 
 // show route
+router.get("/:id", (req,res)=>{
+    Actor.findById(req.params.id, (err, foundActor)=>{
+        if(err){
+            res.send(err)
+        }else{
+            res.render("show.ejs", {
+                actor: foundActor
+            })
+        }
+    })
+})
 
 // index route
 router.get("/", (req,res) =>{
