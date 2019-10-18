@@ -32,6 +32,17 @@ router.post("/", (req, res) => {
 // show route
 
 // index route
+router.get("/", (req,res) =>{
+    Actor.find({}, (err, foundActors) => {
+        if (err){
+            res.send(err)
+        } else{
+            res.render("index.ejs", {
+                actors: foundActors
+            })
+        }
+    })
+})
 
 // destroy route
 
